@@ -1,10 +1,10 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
 	has_many :shots
 
   attr_reader :user_agent, :latitude, :longitude
   attr_accessor :rank, :general_accuracy
 
-  def initialize(user_agent, latitude = nil, longitude = nil)
+	def initialize(user_agent, latitude=nil, longitude=nil)
     @user_agent = user_agent
     @latitude = latitude
     @longitude = longitude
