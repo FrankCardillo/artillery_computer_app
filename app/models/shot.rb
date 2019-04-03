@@ -10,6 +10,8 @@ class Shot < ApplicationRecord
     @cannon_to_target_distance = cannon_to_target_distance
     @size_of_target = size_of_target
     @user = user
+    @impact_to_target_distance = nil
+    @hit_target = false
   end
 
 end

@@ -1,15 +1,32 @@
 class User < ApplicationRecord
-    has_many :shots
+	has_many :shots
 
-    attr_reader :muzzle_speed, :shot_angle, :shell_weight, :cannon_to_target_distance, :size_of_target, :user
-    attr_accessor :impact_to_target_distance, :hit_target
+  attr_reader :user_agent, :latitude, :longitude
+  attr_accessor :rank, :general_accuracy
 
-  def initialize(muzzle_speed, shot_angle, shell_weight, cannon_to_target_distance, size_of_target, user)
-    @muzzle_speed = muzzle_speed
-    @shot_angle = shot_angle
-    @shell_weight = shell_weight
-    @cannon_to_target_distance = cannon_to_target_distance
-    @size_of_target = size_of_target
-    @user = user
-  end
+  def initialize(user_agent, latitude = nil, longitude = nil)
+    @user_agent = user_agent
+    @latitude = latitude
+    @longitude = longitude
+		@rank = nil
+		@general_accuracy = nil
+	end
+	
+	def calculate_accuracy
+		number_of_shots = self.shots.size
+		score = 0
+		shots_hit = self.shots.where(hit_target: true).size
+		score += (100 * shots_hit)
+
+		self.shots.where(hit_target: false).each do |shot|
+			missed_score = (100 - shot.impact_to_target_distance)
+			score += missed_score
+		end
+
+		if score <= 0
+			self.general_accuracy = 0
+		else
+			self.general_accuracy = (score / number_of_shots)
+		end
+	end
 end
