@@ -4,7 +4,7 @@ describe User do
 	describe 'When testing the User class' do
 		let(:valid_user) { User.new('fake user agent', 1, 2) }
 
-		it 'is valid when passed correct parameters', :focus do
+		it 'is valid when passed correct parameters' do
 			expect(valid_user).to be_instance_of(User)
 		end
 

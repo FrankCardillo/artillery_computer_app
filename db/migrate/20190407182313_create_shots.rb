@@ -1,7 +1,6 @@
-class Shots < ActiveRecord::Migration[5.2]
-  def up
-    create_table :Shots do |t|
-      t.string :user_agent
+class CreateShots < ActiveRecord::Migration[5.2]
+  def change
+    create_table :shots do |t|
       t.float :muzzle_speed
       t.float :shot_angle
       t.integer :shell_weight
@@ -13,8 +12,5 @@ class Shots < ActiveRecord::Migration[5.2]
       t.timestamps
       t.integer :user_id
     end
-  end
-  def def down 
-    drop_table :Shots
   end
 end

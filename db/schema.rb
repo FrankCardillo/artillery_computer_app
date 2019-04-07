@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_162210) do
+ActiveRecord::Schema.define(version: 2019_04_07_182313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Shots", force: :cascade do |t|
+  create_table "shots", force: :cascade do |t|
     t.float "muzzle_speed"
     t.float "shot_angle"
     t.integer "shell_weight"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_162210) do
     t.integer "user_id"
   end
 
-  create_table "Users", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "user_agent"
     t.integer "rank"
     t.float "general_accuracy"

@@ -1,6 +1,6 @@
-class Users < ActiveRecord::Migration[5.2]
-  def up
-    create_table :Users do |t|
+class CreateUsers < ActiveRecord::Migration[5.2]
+  def change
+    create_table :users do |t|
       t.string :user_agent
       t.integer :rank
       t.float :general_accuracy
@@ -8,8 +8,5 @@ class Users < ActiveRecord::Migration[5.2]
       t.integer :longitude
       t.timestamps
     end
-  end
-  def down
-    drop_table :Users
   end
 end
