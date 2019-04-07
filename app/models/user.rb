@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :shots
+	# has_many :shots
 
   attr_reader :user_agent, :latitude, :longitude
   attr_accessor :rank, :general_accuracy
