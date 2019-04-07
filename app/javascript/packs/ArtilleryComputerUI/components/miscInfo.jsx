@@ -21,7 +21,10 @@ class MiscInfo extends React.Component {
     render() {
         return(
             <div>
-                Hello {props}
+                <InfoPane infoField="Total Users" value=""></InfoPane>
+                <InfoPane infoField="Total Shots For All Users" value=""></InfoPane>
+                <InfoPane infoField="Avg. # of Shots to Hit Target" value=""></InfoPane>
+                <InfoPane infoField="Your Total Shots" value=""></InfoPane>
             </div>
         )
     }
