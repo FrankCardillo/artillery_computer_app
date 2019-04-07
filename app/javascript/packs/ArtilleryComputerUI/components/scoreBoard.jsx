@@ -1,7 +1,10 @@
 // Will hold all the score cards
 // Will break out the current user's info in a discernably separate space
 
-class Hello extends React.Component {
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class ScoreBoard extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -23,3 +26,5 @@ class Hello extends React.Component {
         )
     }
 }
+
+export default ScoreBoard

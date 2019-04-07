@@ -3,25 +3,24 @@
 // Whether the target was hit or missed.
 // How far away from the target the shell landed.
 
-class Hello extends React.Component {
-    constructor(props) {
-        super(props);
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const ShotResults = ({hitTarget, distanceFromTarget}) => {
+    if (hitTarget) {
+        return (
+            <div className="component-border">
+                <div>You Hit the Target!</div>
+            </div>
+        );
     }
 
-    state = { count: 1 };
-   
-    handleCount(value) {
-        this.setState((prevState) => ({count: prevState.count + value}));
-    }
-    handleCount(value) {
-        this.setState({count: this.state.count + value});
-    }
- 
-    render() {
-        return(
-            <div>
-                Hello {props}
-            </div>
-        )
-    }
-}
+    return (
+        <div className="component-border">
+            <div>You Missed the Target!</div>
+            <div>Distance From Target: {distanceFromTarget}</div>
+        </div>
+    );
+};
+
+export default ShotResults

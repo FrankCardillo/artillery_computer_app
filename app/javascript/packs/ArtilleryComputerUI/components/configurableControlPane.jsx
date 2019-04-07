@@ -1,10 +1,10 @@
-// Will hold the info panes
-// Will pass to them what they ought to render
+// The angle of the howitzer barrel relative to the ground.
+// The muzzle speed (Preferably a list of pre-selected speeds).
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class MiscInfo extends React.Component {
+class ConfigurableControlPane extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -27,4 +27,4 @@ class MiscInfo extends React.Component {
     }
 }
 
-export default MiscInfo
+export default ConfigurableControlPane

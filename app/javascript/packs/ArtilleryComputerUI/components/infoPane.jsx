@@ -4,8 +4,14 @@
 // Total Users.
 // Avg number of shots to hit the target.
 
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const HelloWorld = ({name}) => (
-    <div>{`Hi ${name}`}</div>
+const InfoPane = ({infoField, value}) => (
+    <div className="component-border">
+        <div>{infoField}</div>
+        <div>{value}</div>
+    </div>
 );
    
+export default InfoPane
