@@ -2,39 +2,55 @@ require 'rails_helper'
 
 describe User do 
 	describe 'When testing the User class' do
-		it 'is valid when passed correct parameters', :focus do
-			valid_user = User.new('fake user agent', 1, 2)
+		it 'is valid when passed correct parameters' do
+			valid_user = User.new
+			valid_user.user_agent = "fake user agent"
+			valid_user.latitude = 1
+			valid_user.longitude = 2
+			valid_user.rank = 15
 			expect(valid_user).to be_instance_of(User)
 		end
+	end
 
-		it 'is invalid when passed incorrect parameters' do
-			expect { User.new(1, 1) }.to raise_error
-		end
+	describe '#calculate_accuracy' do
+		let(:valid_user) { User.new }
+		let(:shot1) { Shot.new }
+		let(:shot2) { Shot.new }
+		let(:shot3) { Shot.new }
+		let(:fake_shots) { [shot1, shot2, shot3] }
+		
+		it 'calculates the correct accuracy' do
+			valid_user.shots << shot1
+			valid_user.shots << shot2
+			valid_user.shots << shot3
 
-		it 'is valid when passed no coordinates' do
-			valid_user = User.new('fake user agent')
-			expect(valid_user).to be_instance_of(User)
-		end
-
-		describe '#calculate_accuracy' do
-			let(:valid_user) { User.new('fake user agent', 1, 2) }
-			let(:fake_shots) { [Shot.new(1, 1, 1, 100, 6, valid_user), Shot.new(1, 1, 1, 100, 6, valid_user), Shot.new(1, 1, 1, 100, 6, valid_user)] }
-			
-			it 'should calculate the correct accuracy' do
-				fake_shots.each do |shot|
-					shot.impact_to_target_distance = 40
-				end
-
-				expect(valid_user.calculate_accuracy).to eq(40)
+			fake_shots.each do |shot|
+				shot.muzzle_speed = 1
+				shot.shot_angle = 1
+				shot.cannon_to_target_distance = 1
+				shot.size_of_target = 6
+				shot.hit_target = false
+				shot.impact_to_target_distance = 40
 			end
 
-			it 'should be no lower than zero' do
-				fake_shots.each do |shot|
-					shot.impact_to_target_distance = 4000
-				end
+			expect(valid_user.calculate_accuracy).to eq(60)
+		end
 
-				expect(valid_user.calculate_accuracy).to eq(0)
+		it 'is no lower than zero' do
+			valid_user.shots << shot1
+			valid_user.shots << shot2
+			valid_user.shots << shot3
+
+			fake_shots.each do |shot|
+				shot.muzzle_speed = 1
+				shot.shot_angle = 1
+				shot.cannon_to_target_distance = 1
+				shot.size_of_target = 6
+				shot.hit_target = false
+				shot.impact_to_target_distance = 4000
 			end
+
+			expect(valid_user.calculate_accuracy).to eq(0)
 		end
 	end
 end
