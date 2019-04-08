@@ -2,6 +2,7 @@ import React from 'react';
 import ComputerControls from './computerControls';
 import ScoreBoard from './scoreBoard';
 import ShotResults from './shotResults';
+
 class LandingPage extends React.Component {
   constructor(props) {
 		super(props);

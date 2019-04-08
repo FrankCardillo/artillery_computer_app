@@ -2,29 +2,25 @@
 // Will pass to them what they ought to render
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class MiscInfo extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    state = { count: 1 };
+    state = { totalUsers: 0, totalShotsAllUsers: 0, averageShots: 0, totalShotsCurrentUser: 0 };
    
-    handleCount(value) {
-        this.setState((prevState) => ({count: prevState.count + value}));
-    }
-    handleCount(value) {
-        this.setState({count: this.state.count + value});
-    }
+    // need to pull these stats from the DB when the component loads
+    // gonna probably be a lifecycle hook. maybe componentDidMount(). 
+    // I remember one of them is the correct place to update state
  
     render() {
         return(
             <div>
-                <InfoPane infoField="Total Users" value=""></InfoPane>
-                <InfoPane infoField="Total Shots For All Users" value=""></InfoPane>
-                <InfoPane infoField="Avg. # of Shots to Hit Target" value=""></InfoPane>
-                <InfoPane infoField="Your Total Shots" value=""></InfoPane>
+                <InfoPane infoField="Total Users" value={this.state.totalUsers}></InfoPane>
+                <InfoPane infoField="Total Shots For All Users" value={this.state.totalShotsAllUsers}></InfoPane>
+                <InfoPane infoField="Avg. # of Shots to Hit Target" value={this.state.averageShots}></InfoPane>
+                <InfoPane infoField="Your Total Shots" value={this.state.totalShotsCurrentUser}></InfoPane>
             </div>
         )
     }

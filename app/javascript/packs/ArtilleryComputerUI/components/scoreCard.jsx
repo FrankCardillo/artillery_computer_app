@@ -3,7 +3,6 @@
 // and their total number of shots
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const ScoreCard = ({userName, accuracy, shots}) => (
     <div className="component-border">

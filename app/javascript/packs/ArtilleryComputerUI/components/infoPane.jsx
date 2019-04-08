@@ -5,7 +5,6 @@
 // Avg number of shots to hit the target.
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const InfoPane = ({infoField, value}) => (
     <div className="component-border">

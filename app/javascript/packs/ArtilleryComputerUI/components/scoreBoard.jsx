@@ -2,7 +2,6 @@
 // Will break out the current user's info in a discernably separate space
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import ScoreCard from './scoreCard';
 
 class ScoreBoard extends React.Component {

@@ -4,7 +4,6 @@
 // The size of the target.
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const StaticControlPane = ({name, value}) => (
     <div className="component-border">

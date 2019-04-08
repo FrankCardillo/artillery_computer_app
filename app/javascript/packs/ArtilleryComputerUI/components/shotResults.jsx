@@ -4,7 +4,6 @@
 // How far away from the target the shell landed.
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const ShotResults = ({hitTarget, distanceFromTarget}) => {
     if (hitTarget) {

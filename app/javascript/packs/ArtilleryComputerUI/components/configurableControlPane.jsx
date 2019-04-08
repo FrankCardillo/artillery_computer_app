@@ -2,27 +2,32 @@
 // The muzzle speed (Preferably a list of pre-selected speeds).
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class ConfigurableControlPane extends React.Component {
     constructor(props) {
         super(props);
     }
 
-    state = { count: 1 };
-   
-    handleCount(value) {
-        this.setState((prevState) => ({count: prevState.count + value}));
-    }
-    handleCount(value) {
-        this.setState({count: this.state.count + value});
-    }
+    state = { value: 0 };
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+      }
+    
+      handleSubmit(event) {
+        alert('A value was submitted: ' + this.state.value);
+        event.preventDefault();
+      }
  
     render() {
         return(
-            <div>
-                Hello {props}
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    {this.props.name}
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
         )
     }
 }
