@@ -2,13 +2,14 @@ import React from 'react';
 import ComputerControls from './computerControls';
 import ScoreBoard from './scoreBoard';
 import ShotResults from './shotResults';
+import MiscInfo from './miscInfo';
 
 class LandingPage extends React.Component {
   constructor(props) {
-		super(props);
+    super(props);
+    
+    this.state = {shotFired: false};
 	}
-
-  state = { shotFired: false };
   
   // the shot fired event needs to come in from the backend. Only then do we know the shot was really fired and recorded in the DB
   // TODO: how to do this?
@@ -19,7 +20,7 @@ class LandingPage extends React.Component {
       shotResult = <ShotResults></ShotResults>
     }
     return(
-      <div>
+      <div className="component-border">
         <ComputerControls></ComputerControls>
         <ScoreBoard></ScoreBoard>
         <MiscInfo></MiscInfo>

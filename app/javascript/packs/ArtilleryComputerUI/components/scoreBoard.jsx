@@ -7,20 +7,13 @@ import ScoreCard from './scoreCard';
 class ScoreBoard extends React.Component {
   constructor(props) {
     super(props);
-  }
 
-  state = { count: 1 };
-  
-  handleCount(value) {
-    this.setState((prevState) => ({count: prevState.count + value}));
-  }
-  handleCount(value) {
-    this.setState({count: this.state.count + value});
+    this.state = { count: 1 };
   }
 
   render() {
     return (
-      <div>
+      <div className="component-border">
         <div id="top-users-scores">
           1. <ScoreCard></ScoreCard>
           2. <ScoreCard></ScoreCard>

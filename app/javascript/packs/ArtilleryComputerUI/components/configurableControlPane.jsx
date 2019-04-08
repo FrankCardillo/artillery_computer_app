@@ -4,32 +4,37 @@
 import React from 'react';
 
 class ConfigurableControlPane extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    state = { value: 0 };
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-      }
+	constructor(props) {
+    super(props);
     
-      handleSubmit(event) {
-        alert('A value was submitted: ' + this.state.value);
-        event.preventDefault();
-      }
- 
-    render() {
-        return(
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    {this.props.name}
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        )
-    }
+    this.state = {
+      value: 0
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+	}
+
+	handleChange(event) {
+		this.setState({value: event.target.value});
+	}
+	
+	handleSubmit(event) {
+    event.preventDefault();
+		alert('A value was submitted: ' + this.state.value);
+	}
+
+	render() {
+		return(
+			<form onSubmit={this.handleSubmit} className="component-border">
+				<label>
+					{this.props.name}
+					<input type="text" value={this.state.value} onChange={this.handleChange} />
+				</label>
+				<input type="submit" value="Submit" />
+			</form>
+		)
+	}
 }
 
 export default ConfigurableControlPane

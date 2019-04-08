@@ -6,14 +6,14 @@
 import React from 'react';
 
 const StaticControlPane = ({name, value}) => (
-    <div className="component-border">
+  <div className="component-border">
     <div>
-        {name}
+      {name}
     </div>
     <div>
-        {value}
+      {value}
     </div>
-    </div>
+  </div>
 );  
 
 export default StaticControlPane
