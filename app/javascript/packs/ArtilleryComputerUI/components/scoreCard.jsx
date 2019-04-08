@@ -1,7 +1,3 @@
-// Will hold the user's name
-// and their overall accuracy
-// and their total number of shots
-
 import React from 'react';
 
 const ScoreCard = ({userName, accuracy, shots}) => (
