@@ -1,6 +1,3 @@
-// The angle of the howitzer barrel relative to the ground.
-// The muzzle speed (Preferably a list of pre-selected speeds).
-
 import React from 'react';
 
 class ConfigurableControlPane extends React.Component {

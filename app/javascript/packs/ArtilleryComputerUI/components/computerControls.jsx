@@ -1,6 +1,3 @@
-// Holds all the control panes and the fire button
-// tells the control panes what to render, generates random numbers for some of them
-
 import React from 'react';
 import StaticControlPane from './staticControlPane';
 import ConfigurableControlPane from './configurableControlPane';

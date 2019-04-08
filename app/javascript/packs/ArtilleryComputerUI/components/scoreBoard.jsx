@@ -1,6 +1,3 @@
-// Will hold all the score cards
-// Will break out the current user's info in a discernably separate space
-
 import React from 'react';
 import ScoreCard from './scoreCard';
 

@@ -1,6 +1,3 @@
-// Will hold the info panes
-// Will pass to them what they ought to render
-
 import React from 'react';
 import InfoPane from './infoPane';
 
@@ -9,11 +6,25 @@ class MiscInfo extends React.Component {
 		super(props);
 
 		this.state = { totalUsers: 0, totalShotsAllUsers: 0, averageShots: 0, totalShotsCurrentUser: 0 };
+
+		this.updateInfo = this.updateInfo.bind(this);
 	}
 	
-	// need to pull these stats from the DB when the component loads
-	// gonna probably be a lifecycle hook. maybe componentDidMount(). 
-	// I remember one of them is the correct place to update state
+	componentDidMount() {
+		this.updateInfo();
+	}
+
+	updateInfo() {
+		let numberUsers = 0;
+		let numberShots = 0;
+		let avgShots = 0;
+		let currentShots = 0;
+
+		// api call here to get info (mvp will only get info on the initial component mount)
+		// later on, this should be able to pull data as it changes. some kind of reactive, event based stream
+
+		this.setState({ totalUsers: numberUsers, totalShotsAllUsers: numberShots, averageShots: avgShots, totalShotsCurrentUser: currentShots });
+	}
 
 	render() {
 		return(
