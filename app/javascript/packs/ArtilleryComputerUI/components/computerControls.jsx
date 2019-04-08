@@ -18,6 +18,7 @@ class ComputerControls extends React.Component {
 	render() {
 		return (
 			<div className="component-border">
+				Artillery Computer Controls
 				<StaticControlPane name="Shell Weight" value={this.state.shellWeight}></StaticControlPane>
 				<StaticControlPane name="Target Distance" value={this.state.targetDistance}></StaticControlPane>
 				<StaticControlPane name="Target Size" value={this.state.targetSize}></StaticControlPane>

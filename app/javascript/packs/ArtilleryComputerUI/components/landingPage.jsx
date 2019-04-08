@@ -21,6 +21,7 @@ class LandingPage extends React.Component {
     }
     return(
       <div className="component-border">
+        Artillery Targeting Computer
         <ComputerControls></ComputerControls>
         <ScoreBoard></ScoreBoard>
         <MiscInfo></MiscInfo>

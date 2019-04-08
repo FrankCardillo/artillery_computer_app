@@ -18,6 +18,7 @@ class MiscInfo extends React.Component {
 	render() {
 		return(
 			<div className="component-border">
+				Miscellaneous Information
 				<InfoPane infoField="Total Users" value={this.state.totalUsers}></InfoPane>
 				<InfoPane infoField="Total Shots For All Users" value={this.state.totalShotsAllUsers}></InfoPane>
 				<InfoPane infoField="Avg. # of Shots to Hit Target" value={this.state.averageShots}></InfoPane>
