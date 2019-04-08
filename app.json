@@ -1,0 +1,15 @@
+{
+    "environments": {
+      "test": {
+        "scripts": {
+          "ruby-test-setup": "bundle install",
+          "ruby-test": "rspec",
+          "js-test-setup": "yarn install",
+          "js-test": "yarn test"
+        },
+        "addons":[
+          "heroku-postgresql"
+        ]
+      }
+    }
+  }
