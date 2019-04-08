@@ -12,7 +12,6 @@ class LandingPage extends React.Component {
 	}
   
   // the shot fired event needs to come in from the backend. Only then do we know the shot was really fired and recorded in the DB
-  // TODO: how to do this?
 
   render() {
     let shotResult = <div></div>
@@ -21,6 +20,7 @@ class LandingPage extends React.Component {
     }
     return(
       <div className="component-border">
+        Artillery Targeting Computer
         <ComputerControls></ComputerControls>
         <ScoreBoard></ScoreBoard>
         <MiscInfo></MiscInfo>

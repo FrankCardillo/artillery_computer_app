@@ -1,8 +1,3 @@
-// Pops up after the shot is fired and the result is calculated.
-// Should display:
-// Whether the target was hit or missed.
-// How far away from the target the shell landed.
-
 import React from 'react';
 
 const ShotResults = ({hitTarget, distanceFromTarget}) => {
